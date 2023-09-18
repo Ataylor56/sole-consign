@@ -16,6 +16,7 @@ import Consignment from "./views/Consignment/Consignment";
 import Sold from "./views/Consignment/Sold/Sold";
 import Withdrawls from "./views/Consignment/Withdrawls/Withdrawls";
 import Submissions from "./views/Consignment/Submissions/Submissions";
+import Settings from "./views/Settings";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -48,6 +49,7 @@ function App() {
           <Routes>
             <Route path="login" element={<Login />} />
             <Route index element={<Home />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="/consignment" element={<Consignment />} />
             <Route path="/consignment/inventory" element={<Inventory />} />
             <Route path="/consignment/sold" element={<Sold />} />

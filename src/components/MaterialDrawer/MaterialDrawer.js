@@ -4,46 +4,19 @@ import {
   AppBar,
   Toolbar,
   Divider,
-  useTheme,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   ListItemIcon,
   IconButton,
-  Fab,
 } from "@mui/material";
-import {
-  Search,
-  Inbox,
-  Mail,
-  ListRounded,
-  Home,
-  AcUnit,
-  AccessAlarms,
-  Nightlife,
-  MenuOpen,
-  SearchOff,
-  More,
-  Add,
-  DarkMode,
-  LightMode,
-} from "@mui/icons-material";
-import { useState, useContext } from "react";
-import { ColorModeContext } from "../../contexts/ColorModeContext";
 import { useNavigate } from "react-router-dom";
 import { MaterialDrawerConfig } from "./MaterialDrawerConfig";
 
 const MaterialDrawer = () => {
-  const [open, setOpen] = useState(false);
-  const theme = useTheme();
-  const colorMode = useContext(ColorModeContext);
   const drawerWidth = 200;
   const navigate = useNavigate();
-
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
 
   return (
     <>
@@ -60,6 +33,7 @@ const MaterialDrawer = () => {
       >
         <List>
           {MaterialDrawerConfig.map((item) => {
+            if (item.title === "divider") return <Divider />;
             return (
               <ListItem key={item.id} disablePadding>
                 <ListItemButton
@@ -73,19 +47,6 @@ const MaterialDrawer = () => {
               </ListItem>
             );
           })}
-          <Divider />
-          <ListItem key={3} sx={{ alignSelf: "flex-end" }} disablePadding>
-            <ListItemButton onClick={colorMode.toggleColorMode}>
-              <ListItemIcon>
-                {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  theme.palette.mode === "dark" ? "Light Theme" : "Dark Theme"
-                }
-              />
-            </ListItemButton>
-          </ListItem>
         </List>
       </Drawer>
       <AppBar
@@ -99,6 +60,7 @@ const MaterialDrawer = () => {
       >
         <Toolbar>
           {MaterialDrawerConfig.map((item) => {
+            if (item.title === "divider") return <Box sx={{ flexGrow: 1 }} />;
             return (
               <IconButton
                 key={item.id}
@@ -110,10 +72,6 @@ const MaterialDrawer = () => {
               </IconButton>
             );
           })}
-          <Box sx={{ flexGrow: 1 }} />
-          <IconButton onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
-          </IconButton>
         </Toolbar>
       </AppBar>
     </>

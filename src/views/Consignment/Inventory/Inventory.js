@@ -29,7 +29,13 @@ const Inventory = () => {
       }}
       maxWidth="false"
     >
-      <h1>Active Inventory</h1>
+      <h1
+        style={{
+          alignSelf: "flex-start",
+        }}
+      >
+        Active Inventory
+      </h1>
       <SearchBar
         value={search}
         onChange={(event) => onSearchChange(event)}

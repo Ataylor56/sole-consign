@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { SubmissionsConfig } from "./SubmissionsConfig";
 
@@ -16,8 +16,27 @@ const Submissions = () => {
       }}
       maxWidth="false"
     >
-      <h1>Submissions</h1>
+      <h1
+        style={{
+          alignSelf: "flex-start",
+        }}
+      >
+        Submissions
+      </h1>
+      <Button
+        sx={{
+          alignSelf: "flex-end",
+          margin: "15px",
+        }}
+        variant="contained"
+        onClick={() => alert("New Submission")}
+      >
+        New Submission
+      </Button>
       <DataGrid
+        sx={{
+          width: "100%",
+        }}
         rows={[]}
         columns={SubmissionsConfig}
         pageSize={5}

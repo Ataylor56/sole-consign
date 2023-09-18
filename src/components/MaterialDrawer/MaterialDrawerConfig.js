@@ -1,4 +1,5 @@
-import { Home, ListRounded } from "@mui/icons-material";
+import { Home, ListRounded, Settings } from "@mui/icons-material";
+import { Divider } from "@mui/material";
 
 export const MaterialDrawerConfig = [
   {
@@ -12,5 +13,16 @@ export const MaterialDrawerConfig = [
     title: "Consignment",
     path: "/consignment",
     icon: <ListRounded />,
+  },
+  {
+    id: 3,
+    title: "divider",
+    icon: <Divider />,
+  },
+  {
+    id: 4,
+    title: "Settings",
+    path: "/settings",
+    icon: <Settings />,
   },
 ];
